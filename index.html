@@ -30,6 +30,18 @@
       align-items: center;
       text-align: center;
     }
+    .banner {
+      width: 300px;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .banner:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(0,255,195,0.7);
+    }
     a.button {
       display: inline-block;
       margin-top: 20px;
@@ -44,17 +56,85 @@
     a.button:hover {
       background-color: #00c6a0;
     }
+    .share-buttons {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .share-buttons button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background-color: #222;
+      color: #fff;
+      transition: background-color 0.3s;
+    }
+    .share-buttons button:hover {
+      background-color: #444;
+    }
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #00ffc3;
+      color: #000;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 1000;
+    }
+    .toast.show {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
   <div id="tsparticles"></div>
   <div class="content">
+    <a href="https://adbtc.top/r/l/249279" target="_blank" onclick="ym(101159299, 'reachGoal', 'banner_click'); return true;">
+      <img class="banner" src="https://teaserfast.ru/uploads/banners/2022-10/28125620221020062029688.gif" alt="Баннер">
+    </a>
     <h1>Заработок BTC без вложений</h1>
     <p>Подписывайся на наш Telegram-канал и начни зарабатывать уже сегодня!</p>
     <a class="button" href="https://t.me/+4BS5e0Sz6Ec5ZGYy" target="_blank">Перейти в Telegram</a>
+
+    <div class="share-buttons">
+      <button onclick="copyLink()">📋 Скопировать ссылку</button>
+      <button onclick="shareVk()">🔵 Поделиться в ВКонтакте</button>
+      <button onclick="shareTg()">✈️ Поделиться в Telegram</button>
+      <button onclick="shareX()">🐦 Поделиться в X (Twitter)</button>
+    </div>
   </div>
 
+  <div id="toast" class="toast">Ссылка скопирована в буфер обмена!</div>
+
   <script>
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const toast = document.getElementById("toast");
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 3000);
+      });
+    }
+    function shareVk() {
+      const url = encodeURIComponent(window.location.href);
+      window.open(`https://vk.com/share.php?url=${url}`, '_blank');
+    }
+    function shareTg() {
+      const url = encodeURIComponent(window.location.href);
+      window.open(`https://t.me/share/url?url=${url}`, '_blank');
+    }
+    function shareX() {
+      const url = encodeURIComponent(window.location.href);
+      window.open(`https://twitter.com/intent/tweet?url=${url}`, '_blank');
+    }
+
     tsParticles.load("tsparticles", {
       fpsLimit: 60,
       background: { color: "#0f0f0f" },
@@ -110,7 +190,8 @@
      ym(101159299, "init", {
           clickmap:true,
           trackLinks:true,
-          accurateTrackBounce:true
+          accurateTrackBounce:true,
+          webvisor:true
      });
   </script>
   <noscript><div><img src="https://mc.yandex.ru/watch/101159299" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
