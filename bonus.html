@@ -4,25 +4,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>🎉 Бонус от Teaserfast</title>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f8f9fa;
-      color: #333;
+    html, body {
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
+
+    #tsparticles {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: #093b95;
+      z-index: 0;
+    }
+
+    .sponsor-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+      background-color: #ffffff;
+      color: #093b95;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .sponsor-button:hover {
+      background-color: #e0e0e0;
+    }
+
     .container {
+      position: relative;
+      z-index: 1;
       max-width: 800px;
-      margin: auto;
-      background: #fff;
+      margin: 120px auto 50px;
+      background: rgba(255, 255, 255, 0.95);
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
+
     h1, h2 {
       text-align: center;
     }
+
     a.button {
       display: inline-block;
       margin: 10px 5px;
@@ -33,15 +68,19 @@
       border-radius: 8px;
       font-weight: bold;
     }
+
     a.button:hover {
       background: #218838;
     }
+
     ul {
       padding-left: 20px;
     }
+
     .center {
       text-align: center;
     }
+
     .countdown {
       font-size: 24px;
       font-weight: bold;
@@ -50,6 +89,12 @@
   </style>
 </head>
 <body>
+  <div id="tsparticles"></div>
+
+  <a class="sponsor-button" href="https://promisecallback.github.io/btc-landing/" target="_blank">
+  💼 Спонсор: adBTC — заработок BTC без вложений
+</a>
+
   <div class="container">
     <h1>🎉 Конкурс: Бонус от Teaserfast! 🎁</h1>
     <p class="center">🚀 Мы преодолели рубеж в <strong>200 рефералов</strong>! Это невероятно! 🥳<br>
@@ -88,28 +133,58 @@
   </div>
 
   <script>
-    // Устанавливаем конечную дату (31 мая 2025)
+    tsParticles.load("tsparticles", {
+      background: { color: "#093b95" },
+      fpsLimit: 60,
+      interactivity: {
+        events: {
+          onClick: { enable: true, mode: "push" },
+          onHover: { enable: true, mode: "repulse" },
+          resize: true
+        },
+        modes: {
+          push: { quantity: 4 },
+          repulse: { distance: 100, duration: 0.4 }
+        }
+      },
+      particles: {
+        color: { value: "#ffffff" },
+        links: {
+          color: "#ffffff",
+          distance: 150,
+          enable: true,
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 1,
+          direction: "none",
+          outMode: "bounce"
+        },
+        number: {
+          value: 80,
+          density: { enable: true, area: 800 }
+        },
+        opacity: { value: 0.5 },
+        shape: { type: "circle" },
+        size: { value: 5, random: true }
+      },
+      detectRetina: true
+    });
+
     const endDate = new Date("May 31, 2025 23:59:59").getTime();
-
-    // Обновляем таймер каждую секунду
     const countdownInterval = setInterval(function() {
-      // Получаем текущую дату и время
       const now = new Date().getTime();
-
-      // Разница между конечной датой и текущей
       const distance = endDate - now;
-
-      // Вычисляем дни, часы, минуты и секунды
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      // Отображаем таймер на странице
-      document.getElementById("countdown").innerHTML = 
+      document.getElementById("countdown").innerHTML =
         days + "д " + hours + "ч " + minutes + "м " + seconds + "с ";
 
-      // Если время вышло, выводим сообщение
       if (distance < 0) {
         clearInterval(countdownInterval);
         document.getElementById("countdown").innerHTML = "Время истекло!";
