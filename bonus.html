@@ -67,10 +67,26 @@
       text-decoration: none;
       border-radius: 8px;
       font-weight: bold;
+      animation: pulse 2s infinite;
     }
 
     a.button:hover {
       background: #218838;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.6);
+      }
+      70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+      }
     }
 
     ul {
@@ -126,6 +142,10 @@
 
     <p class="center">🎲 Победители выбираются случайно среди активных участников.  
     <br>⚠️ Ссылки распределяются случайным образом. После окончания конкурса будет зафиксирована финальная ссылка.</p>
+
+    <div class="center">
+      <a class="button" href="https://teaserfast.ru/u/duc101" target="_blank">👉 Получить бонус</a>
+    </div>
   </div>
 
   <script>
