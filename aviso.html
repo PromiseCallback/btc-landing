@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AVISO — Умный заработок</title>
   <style>
     body {
@@ -20,15 +20,30 @@
     h1, h2 {
       color: #1a202c;
     }
-    .btn-primary {
+    .btn-primary, .btn-secondary {
       display: inline-block;
-      background-color: #3182ce;
-      color: #fff;
       padding: 12px 24px;
       border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
-      margin: 20px 0;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin: 10px;
+    }
+    .btn-primary {
+      background-color: #3182ce;
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background-color: #2b6cb0;
+      transform: scale(1.05);
+    }
+    .btn-secondary {
+      background-color: #4a5568;
+      color: #fff;
+    }
+    .btn-secondary:hover {
+      background-color: #2d3748;
+      transform: scale(1.05);
     }
     ul, ol {
       padding-left: 20px;
@@ -69,7 +84,8 @@
     </ol>
 
     <div class="center">
-      <a href="https://aviso.bz/?r=f_00033o" class="btn-primary">Зарегистрироваться и начать зарабатывать</a>
+      <a href="https://aviso.bz/?r=f_00033o" target="_blank" rel="noopener noreferrer" class="btn-primary">Зарегистрироваться и начать зарабатывать</a><br/>
+      <a href="https://sphere.freeforums.net/thread/21/aviso" target="_blank" rel="noopener noreferrer" class="btn-secondary">Обсудить AVISO на форуме</a>
     </div>
 
     <h2>Что говорят пользователи:</h2>
@@ -84,7 +100,7 @@
 
     <p>Не упусти возможность зарабатывать в интернете уже сегодня — без вложений, с реальными выплатами.</p>
     <div class="center">
-      <a href="https://aviso.bz/?r=f_00033o" class="btn-primary">Перейти на AVISO</a>
+      <a href="https://aviso.bz/?r=f_00033o" target="_blank" rel="noopener noreferrer" class="btn-primary">Перейти на AVISO</a>
     </div>
   </div>
 </body>
