@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UNU.IM</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .banner-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .banner-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .click-button {
+      position: absolute;
+      top: 190px; /* регулируй по месту */
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 12px 24px;
+      background-color: #5b28d4;
+      color: white;
+      font-size: 16px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      white-space: nowrap;
+    }
+
+    .click-button:hover {
+      background-color: #7a42f4;
+    }
+
+    @media (max-width: 600px) {
+      .click-button {
+        font-size: 14px;
+        padding: 10px 20px;
+        top: 170px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="banner-container">
+    <img src="https://i.postimg.cc/02cPFFGF/unu.png" alt="UNU Banner" class="banner-image">
+    <a href="https://unu.im/re/3498173" target="_blank" class="click-button">
+      Начать зарабатывать на UNU.IM
+    </a>
+  </div>
+
+</body>
+</html>
