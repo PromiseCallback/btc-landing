@@ -1,309 +1,130 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>🎁 Бонус без вложений — начни зарабатывать уже сегодня!</title>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Умный заработок без вложений</title>
   <style>
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
-      height: 100%;
       font-family: Arial, sans-serif;
-      overflow-x: hidden;
-      overflow-y: auto;
+      background: linear-gradient(to bottom right, #f7f9fc, #e2e8f0);
+      color: #222;
     }
-
-    #tsparticles {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background-color: #093b95;
-      z-index: 0;
+    header, section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
     }
-
-    .sponsor-button {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 10;
-      background-color: #ffffff;
-      color: #093b95;
-      border: none;
-      padding: 10px 20px;
-      font-weight: bold;
-      border-radius: 6px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background-color 0.3s;
-    }
-
-    .sponsor-button:hover {
-      background-color: #e0e0e0;
-    }
-
-    .container {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
-      margin: 100px auto 50px;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
     h1, h2 {
       text-align: center;
     }
-
-    a.button {
+    .btn {
       display: inline-block;
-      margin: 10px 5px;
-      padding: 14px 24px;
-      background: #ffc107;
-      color: black;
-      text-decoration: none;
+      padding: 12px 24px;
+      background-color: #00b894;
+      color: white;
       border-radius: 8px;
+      text-decoration: none;
       font-weight: bold;
-      animation: pulse 2s infinite;
-      font-size: 18px;
     }
-
-    a.button:hover {
-      background: #ffb300;
-    }
-
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.6);
-      }
-      70% {
-        transform: scale(1.05);
-        box-shadow: 0 0 0 10px rgba(255, 193, 7, 0);
-      }
-      100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
-      }
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
     .center {
       text-align: center;
     }
-
-    .countdown {
-      font-size: 24px;
-      font-weight: bold;
-      color: #e63946;
+    .features, .steps, .reviews {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
-
-    .benefits {
-      background: #f1f1f1;
-      border-radius: 10px;
+    .box {
+      background: white;
       padding: 20px;
-      margin: 30px 0;
-    }
-
-    .benefits h2 {
-      margin-bottom: 10px;
-    }
-
-    .benefits ul {
-      list-style-type: '✅';
-      padding-left: 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
   </style>
 </head>
 <body>
-  <div id="tsparticles"></div>
 
-  <a class="sponsor-button" href="https://promisecallback.github.io/btc-landing/" target="_blank">
-    💼 Спонсор: adBTC — заработок BTC без вложений
-  </a>
-
-  <div class="container">
-    <h1>💸 Получи 5 рублей за регистрацию на Teaserfast</h1>
-    <p class="center">Никаких вложений — только бонус и шанс выиграть призы!<br>Акция действует ограниченное время ⏳</p>
-
-    <!-- Блок проверки с вопросом -->
-    <div style="margin: 40px 0; text-align: center;">
-      <h2>Решите задачу — получите доступ к бонусу!</h2>
-  <p>Введите правильный ответ, чтобы открыть кнопку с бонусом:</p>
-  <p><b>Сколько будет 2 + 2?</b></p>
-      <input type="text" id="answer" placeholder="Введите ответ" autocomplete="off" style="padding:10px; font-size:16px; width: 150px; border-radius:8px; border:1px solid #ccc;" />
-      <br /><br />
-      <button id="checkBtn" style="background:#093b95; color:white; padding:12px 25px; border:none; border-radius:8px; cursor:pointer; font-weight:bold;">
-        Проверить
-      </button>
-      <div id="errorMsg" style="color:red; font-weight:bold; margin-top:15px; display:none;">
-        Неправильный ответ, попробуйте ещё.
-      </div>
-    </div>
-
-    <!-- Кнопки бонуса, изначально скрыты -->
+  <!-- 1. Hero-блок: Заголовок и призыв к действию -->
+  <header>
+    <h1>Умный заработок без вложений</h1>
+    <p class="center">Регистрируйтесь и получайте бонусы уже сегодня — без рисков и вложений</p>
     <div class="center">
-      <a class="button bonus-button" href="https://teaserfast.ru/u/Alishay298" target="_blank" style="display:none;">
-        🚀 Получить бонус сейчас
-      </a>
+      <a href="#register" class="btn">Начать зарабатывать</a>
     </div>
+  </header>
 
-    <div class="benefits">
-      <h2 class="center">Почему это выгодно:</h2>
-      <ul>
-        <li>Бонус 5₽ сразу после регистрации</li>
-        <li>Розыгрыш дополнительных призов</li>
-        <li>Реферальная ссылка будет рекламироваться за тебя</li>
-        <li>Никаких вложений — только польза</li>
-        <li>Проверено участниками — более 200 уже с нами</li>
-      </ul>
+  <!-- 2. Оффер / Преимущества -->
+  <section>
+    <h2>Почему это выгодно?</h2>
+    <div class="features">
+      <div class="box">💰 Бонусы за регистрацию</div>
+      <div class="box">🕒 Не нужно тратить много времени</div>
+      <div class="box">📈 Более 1000 активных участников</div>
+      <div class="box">🛡️ Безопасно и без вложений</div>
     </div>
+  </section>
 
-    <h2 class="center">⏳ До окончания акции осталось:</h2>
-    <div class="center countdown" id="countdown"></div>
+  <!-- 3. Как это работает -->
+  <section>
+    <h2>Как начать?</h2>
+    <div class="steps">
+      <div class="box">1. Зарегистрируйтесь на платформе</div>
+      <div class="box">2. Выполняйте простые задания</div>
+      <div class="box">3. Получайте реальные деньги</div>
+    </div>
+  </section>
 
-    <hr>
+  <!-- 4. Блок доверия / Социальные доказательства -->
+  <section>
+    <h2>Что говорят участники</h2>
+    <div class="reviews">
+      <div class="box">🧑‍💻 «Получил первые рубли уже в первый день. Всё работает!»</div>
+      <div class="box">👩‍💼 «Отличный старт для новичков. Без вложений — это важно.»</div>
+      <div class="box">🧒 «Бонусы радуют. Рекомендую друзьям.»</div>
+    </div>
+  </section>
 
-    <h2>📋 Что нужно сделать:</h2>
-    <ul>
-      <li>1. Зарегистрироваться на платформе Teaserfast</li>
-      <li>2. Установить аватар (обязательно для участия)</li>
-      <li>3. Быть активным — участвовать в розыгрыше</li>
-    </ul>
-
-    <h2>🏆 Призы:</h2>
-    <ul>
-      <li>🥇 1 место — премиум доступ + доп. бонус</li>
-      <li>🥈 2 место — полезные подарки</li>
-      <li>🥉 3 место — скидки и поощрения</li>
-    </ul>
-
-    <p class="center">🎲 Победители выбираются случайно среди активных участников. <br>⚠️ После окончания конкурса ссылка фиксируется.</p>
-
+  <!-- 5. Бонус / Розыгрыш -->
+  <section>
+    <h2>Участвуйте в розыгрыше!</h2>
+    <p class="center">Каждую неделю мы дарим бонусы активным пользователям</p>
     <div class="center">
-      <a class="button bonus-button" href="https://teaserfast.ru/u/Alishay298" target="_blank" style="display:none;">
-        👉 Забрать бонус
-      </a>
+      <a href="https://sphere.freeforums.net/post/54/thread" class="btn">Попасть в розыгрыш</a>
     </div>
+  </section>
 
-    <div class="center" style="margin-top: 30px;">
-      <a class="button" href="https://sphere.freeforums.net/post/60/thread" target="_blank">🎯 Хочу попасть в следующий розыгрыш</a>
+  <!-- 6. Частые вопросы (FAQ) -->
+  <section>
+    <h2>Частые вопросы</h2>
+    <div class="box">
+      <strong>Нужно ли платить за участие?</strong><br>
+      Нет, всё бесплатно. Вы зарабатываете с первых шагов.
     </div>
+    <div class="box">
+      <strong>Когда я получу бонус?</strong><br>
+      Сразу после регистрации и выполнения простого действия.
+    </div>
+  </section>
 
-    <!-- Отзывы -->
-    <section style="background: #181818; color: white; padding: 50px 20px; text-align: center; border-radius: 12px; margin-top: 40px;">
-      <h2 style="font-size: 28px; margin-bottom: 20px;">🙌 Бонус уже получили <span style="color: #FFD700;">218 человек</span></h2>
-      <p style="font-size: 18px; margin-bottom: 40px;">Присоединяйся к тем, кто уже начал зарабатывать с Teaserfast!</p>
-      <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; max-width: 800px; margin: 0 auto;">
-        <div style="background: #222; padding: 20px; border-radius: 10px; width: 250px;">
-          <p style="font-size: 16px;">“Думал обман, но реально начислили бонус! Спасибо!”</p>
-          <p style="font-size: 14px; color: #aaa;">— Алексей, Казань</p>
-        </div>
-        <div style="background: #222; padding: 20px; border-radius: 10px; width: 250px;">
-          <p style="font-size: 16px;">“Регистрировалась ради интереса — уже вывела первую прибыль.”</p>
-          <p style="font-size: 14px; color: #aaa;">— Ольга, Минск</p>
-        </div>
-        <div style="background: #222; padding: 20px; border-radius: 10px; width: 250px;">
-          <p style="font-size: 16px;">“Ничего не вкладывал — просто зарегистрировался и получил бонус.”</p>
-          <p style="font-size: 14px; color: #aaa;">— Иван, Новосибирск</p>
-        </div>
-      </div>
-    </section>
-  </div>
+  <!-- 7. Повторный призыв к действию -->
+  <section id="register">
+    <h2>Начните прямо сейчас</h2>
+    <p class="center">Регистрация займёт всего минуту — не упустите возможность</p>
+    <div class="center">
+      <a href="https://teaserfast.ru/u/f0043a6" class="btn">Зарегистрироваться</a>
+    </div>
+  </section>
 
-  <script>
-    tsParticles.load("tsparticles", {
-      background: { color: "#093b95" },
-      fpsLimit: 60,
-      interactivity: {
-        events: {
-          onClick: { enable: true, mode: "push" },
-          onHover: { enable: true, mode: "repulse" },
-          resize: true,
-        },
-        modes: {
-          push: { quantity: 4 },
-          repulse: { distance: 100, duration: 0.4 },
-        },
-      },
-      particles: {
-        color: { value: "#ffffff" },
-        links: {
-          color: "#ffffff",
-          distance: 150,
-          enable: true,
-          opacity: 0.5,
-          width: 1,
-        },
-        collisions: { enable: false },
-        move: {
-          direction: "top",
-          enable: true,
-          outModes: { default: "out" },
-          random: true,
-          speed: 2,
-          straight: false,
-        },
-        number: { density: { enable: true, area: 800 }, value: 50 },
-        opacity: { value: 0.6 },
-        shape: { type: "circle" },
-        size: { value: { min: 2, max: 4 } },
-      },
-      detectRetina: true,
-    });
+  <!-- 8. Контакты -->
+  <section>
+    <h2>Контакты</h2>
+    <p class="center">
+      Вопросы? Пишите на <a href="mailto:support@example.com">support@example.com</a><br>
+      Форум: <a href="https://sphere.freeforums.net/">https://sphere.freeforums.net</a>
+    </p>
+  </section>
 
-    // Таймер обратного отсчёта до 10 июня 2025
-    function countdownTimer() {
-      const endTime = new Date("2025-06-10T23:59:59").getTime();
-      const now = new Date().getTime();
-      const diff = endTime - now;
-
-      if (diff <= 0) {
-        document.getElementById("countdown").textContent = "Акция завершена";
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-      document.getElementById("countdown").textContent =
-        days + " дн. " + hours + " ч. " + minutes + " мин. " + seconds + " сек.";
-
-      setTimeout(countdownTimer, 1000);
-    }
-
-    countdownTimer();
-
-    // Логика проверки ответа
-    const checkBtn = document.getElementById("checkBtn");
-    const answerInput = document.getElementById("answer");
-    const errorMsg = document.getElementById("errorMsg");
-    const bonusButtons = document.querySelectorAll(".bonus-button");
-
-    checkBtn.addEventListener("click", () => {
-      const userAnswer = answerInput.value.trim();
-
-      if (userAnswer === "4") {
-        // Скрыть сообщение об ошибке
-        errorMsg.style.display = "none";
-        // Показать кнопки бонуса
-        bonusButtons.forEach(btn => btn.style.display = "inline-block");
-        // Заблокировать ввод и кнопку
-        answerInput.disabled = true;
-        checkBtn.disabled = true;
-      } else {
-        // Показать сообщение об ошибке
-        errorMsg.style.display = "block";
-      }
-    });
-  </script>
 </body>
 </html>
